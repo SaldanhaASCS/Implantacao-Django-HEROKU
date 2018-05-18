@@ -1,25 +1,34 @@
 > # Tutorial de implantação de projetos Django no HEROKU
 
-### Entre na sua pasta de projeto
+### Preparação do ambiente de desenvolvimento
+Entre na sua pasta de projeto
 ```
 cd projetos
 ```
-### Instale, crie e ative seu virtualenv
+Instale, crie e ative seu virtualenv
 ```
 sudo apt-get install python3-venv
 virtualenv --python=python3.6 venv
 . venv/bin/activate
 ```
-### Instale, configure e inicie o repositorio de versões
+Instale, configure e inicie o repositorio de versões
 ```
 sudo apt-get install git git-core
 git config --global user.name "Seu Nome"
 git config --global user.email seunome@email.com.br
 git init
 ```
-### Instale o Django
+Instale gerenciador de pacotes python
+```
+sudo apt install python3-pip
+```
+Instale o framework Django
 ```
 pip3 install django
+```
+Crie um projeto Django
+```
+django-admin startproject meuprojeto
 ```
 ### Crie um arquivo chamado `.gitignore` com o seguinte conteúdo de exemplo:
 ```
@@ -51,7 +60,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ```
 pip3 install dj-database-url
 ```
-Insira no `settings.py` e remova as configurações de BD
+Insira no `settings.py` e remova as configurações de BD. As linhas abaixo dizem ao o Django que se ele não encontrar nada na variável de ambiente DATABASE_URL, utilize como Banco de Dados o SQLITE3. O Heroku criará automaticamente a variável DATABASE_URL com configurações de usuário, senha, nome do Banco e local de instalação do Banco PostgreSQL.
 ```
 from dj_database_url import parse as dburl
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
