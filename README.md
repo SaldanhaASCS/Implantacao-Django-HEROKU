@@ -1,4 +1,4 @@
-> # Implantacao-Django-HEROKU
+> # Implantação-Django-HEROKU
 
 ### Entre na sua pasta de projeto
 ```
