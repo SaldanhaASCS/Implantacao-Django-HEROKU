@@ -93,27 +93,45 @@ Veja o comando de instalação para seu sistema operacional neste link http://bi
 curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 ```
 * Crie url da aplicação e repositorio git no heroku para envio da aplicação
-```heroku apps:create nome_aplicacao```
+```
+heroku apps:create nome_aplicacao
+```
 * Configure os hosts permitidos no `settings.py`
 Inclua seu endereço na variável ALLOWED_HOSTS. Exemplo:
-```ALLOWED_HOSTS = ['nome_aplicacao.herokuapp.com']```
+```
+ALLOWED_HOSTS = ['nome_aplicacao.herokuapp.com']
+```
 * Instale o plugin de configuração
-```heroku plugins:install heroku-config```
+```
+heroku plugins:install heroku-config
+```
 * Envie as variáveis de ambiente do arquivo `.env` para o HEROKU 
-```heroku config:push```						
+```
+heroku config:push
+```
 * Grave a versão do projeto no seu repositório local git
 ```
 git add .
 git commit -m 'Configuração para implantação'
 ```
 * Envie a versão do projeto para o repositório remoto do heroku
-```git push --force heroku master```
+```
+git push --force heroku master
+```
 * Crie as tabelas do Banco de Dados com o comando remoto do App HEROKU
-```heroku run python3 manage.py migrate```
+```
+heroku run python3 manage.py migrate
+```
 * Crie o superusuário da sua aplicação
-```heroku run python3 manage.py createsuperuser```
-* Fim!
+```
+heroku run python3 manage.py createsuperuser
+```
+# Fim
 * Caso queira desabilitar o collectstatic para utilizar um outro repositório de arquivos. Ex:AMAZON
-```heroku config:set DISABLE_COLLECTSTATIC=1```
+```
+heroku config:set DISABLE_COLLECTSTATIC=1
+```
 * Caso queira habilitar a variável DEBUG para True
-```heroku config:set DEBUG=True```
+```
+heroku config:set DEBUG=True
+```
