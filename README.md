@@ -1,18 +1,22 @@
 # Implantacao-Django-HEROKU
 
 # ENTRE NA SUA PASTA DE PROJETO
-*`cd projetos`
+`cd projetos`
 
 # INSTALE, CRIE E ATIVE SEU VIRTUALENV
-*`sudo apt-get install python3-venv`
-*`virtualenv --python=python3.6 venv`
-*`. venv/bin/activate`
+```
+sudo apt-get install python3-venv
+virtualenv --python=python3.6 venv
+. venv/bin/activate
+```
 
 # INSTALE, CONFIGURE E INICIE O REPOSITORIO DE VERSÕES GIT
-*`sudo apt-get install git git-core`
-*`git config --global user.name "Seu Nome"`
-*`git config --global user.email seunome@email.com.br`
-*`git init`
+```
+sudo apt-get install git git-core
+git config --global user.name "Seu Nome"
+git config --global user.email seunome@email.com.br
+git init
+```
 
 # CRIE UM ARQUIVO CHAMADO `.gitignore` COM O SEGUINTE CONTEÚDO DE EXEMPLO:
 ```
@@ -27,37 +31,42 @@ migrations/
 .env
 ```
 # ESCONDA INFORMAÇÕES IMPORTANTES DO `settings.py`
-*`pip3 install python-decouple`
+`pip3 install python-decouple`
 
 Crie um arquivo `.env` no caminho raiz do projeto e insira as seguintes variáveis
-*`SECRET_KEY=Your$eCretKeyHere` (Obtenha esta chave secreta do settings.py)
-*`DEBUG=False`
-
+```
+SECRET_KEY=Your$eCretKeyHere (Obtenha esta chave secreta do settings.py)
+DEBUG=False
+```
 Insira no `settings.py`
-*`from decouple import config`
-*`SECRET_KEY = config('SECRET_KEY')`
-*`DEBUG = config('DEBUG', default=False, cast=bool)`
-
+```
+from decouple import config
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+```
 # CONFIGURE O BANCO DE DADOS
-*`pip3 install dj-database-url`
+`pip3 install dj-database-url`
 
 Insira no `settings.py` e remova as configurações de BD
-*`from dj_database_url import parse as dburl`
-*`default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')`
-*`DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }`
+```
+from dj_database_url import parse as dburl
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+```
 
 # CONFIGURE DJANGO PARA SERVIR ARQUIVOS ESTÁTICOS
-*`pip3 install dj-static`
+`pip3 install dj-static`
 
 Insira no wsgi.py e remova a linha `application = get_wsgi_application()`
-*`from dj_static import Cling`
-*`application = Cling(get_wsgi_application())`
-
+```
+from dj_static import Cling
+application = Cling(get_wsgi_application())
+```
 Insira no `settings.py`
-*`STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')`
+`STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')`
 
 # CRIE REQUIREMENTS-DEV.TXT COM A LISTA DE BIBLIOTECAS NECESSÁRIAS PARA O DESENVOLVIMENTO
-*`pip freeze > requirements-dev.txt`
+`pip freeze > requirements-dev.txt`
 
 # CRIE UM ARQUIVO `requeriments.txt` REFERÊNCIANDO O ARQUIVO ANTERIOR COM MAIS 02 BIBLIOTECAS QUE SERÃO UTILIZADA PELO HEROKU
 ```
@@ -93,8 +102,10 @@ Inclua seu endereço na variável ALLOWED_HOSTS. Exemplo:
 `heroku config:push`									
 
 # GRAVE A VERSÃO DO PROJETO NO SEU REPOSITÓRIO LOCAL GIT 
-`git add .`
-`git commit -m 'Configuring the app'`
+```
+git add .
+git commit -m 'Configuração para implantação'
+```
 
 # ENVIE A VERSÃO DO PROJETO PARA O REPOSITÓRIO REMOTO DO HEROKU
 `git push --force heroku master`
