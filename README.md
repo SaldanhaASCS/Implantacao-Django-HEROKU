@@ -19,34 +19,34 @@
 
 # CRIE UM ARQUIVO CHAMADO .gitignore COM O SEGUINTE CONTEÚDO DE EXEMPLO:
 
-* .idea/
-* *.sqlite3
-* venv/
-* *.pyc
-* media/
-* .git/
-* __pycache__/
-* migrations/
-* .env
+- .idea/
+- *.sqlite3
+- venv/
+- *.pyc
+- media/
+- .git/
+- _ _ pycache _ _/
+- migrations/
+- .env
 
 # ESCONDA INFORMAÇÕES IMPORTANTES DO settings.py
 
 * pip3 install python-decouple
 
-"""Crie um arquivo .env no caminho raiz do projeto e insira as seguintes variáveis"""
-SECRET_KEY=Your$eCretKeyHere (Obtenha esta chave secreta do settings.py)
-DEBUG=False
+'''Crie um arquivo .env no caminho raiz do projeto e insira as seguintes variáveis'''
+- SECRET_KEY=Your$eCretKeyHere (Obtenha esta chave secreta do settings.py)
+- DEBUG=False
 
 """Insira no settings.py"""
 from decouple import config
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+- SECRET_KEY = config('SECRET_KEY')
+- DEBUG = config('DEBUG', default=False, cast=bool)
 
 # CONFIGURE O BANCO DE DADOS
 
 * pip3 install dj-database-url
 
-"""Insira no settings.py e remova as configurações de BD"""
+```Insira no settings.py e remova as configurações de BD```
 from dj_database_url import parse as dburl
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
