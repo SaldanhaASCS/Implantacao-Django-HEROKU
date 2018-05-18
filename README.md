@@ -126,7 +126,8 @@ heroku run python3 manage.py migrate
 heroku run python3 manage.py createsuperuser
 ```
 # Fim
-* Caso queira desabilitar o collectstatic para utilizar um outro repositório de arquivos. Ex:AMAZON
+
+### Caso queira desabilitar o collectstatic para utilizar um outro repositório de arquivos. Ex:AMAZON
 ```
 heroku config:set DISABLE_COLLECTSTATIC=1
 ```
