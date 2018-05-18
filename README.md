@@ -17,8 +17,11 @@ git config --global user.name "Seu Nome"
 git config --global user.email seunome@email.com.br
 git init
 ```
+### Instale o Django
+```
+pip3 install django
+```
 ### Crie um arquivo chamado `.gitignore` com o seguinte conteúdo de exemplo:
-
 ```
 .idea/
 *.sqlite3
