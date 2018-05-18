@@ -1,4 +1,4 @@
-> # Implantação-Django-HEROKU
+> # Tutorial de implantação de projetos Django no HEROKU
 
 ### Entre na sua pasta de projeto
 ```
