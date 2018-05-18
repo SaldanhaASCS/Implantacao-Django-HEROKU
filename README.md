@@ -27,7 +27,6 @@ venv/
 media/
 .git/
 __pycache__/
-migrations/
 .env
 ```
 * Esconda informações importantes do `settings.py`
