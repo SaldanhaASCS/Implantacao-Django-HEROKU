@@ -37,7 +37,6 @@ django-admin startproject meuprojeto
 venv/
 *.pyc
 media/
-.git/
 __pycache__/
 .env
 ```
